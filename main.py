@@ -20,11 +20,17 @@ get_days_from_today("2023/10/05")  # Невірний формат
 
 def get_numbers_ticket(min, max, quantity):
     numbers = []
-    if 1 <= min <= quantity <= max <= 1000:
+    if 1 <= min < max <= 1000 and quantity <= (max - min + 1):
         numbers = random.sample(range(min, max +1), quantity)
     return sorted(numbers)
 
-print(get_numbers_ticket(1, 49, 6))
+print(get_numbers_ticket(10, 20, 5))
+print(get_numbers_ticket(10, 15, 5))
+print(get_numbers_ticket(980, 999, 11))
+print(get_numbers_ticket(10, 4, 5))
+print(get_numbers_ticket(10, 14, 6))
+print(get_numbers_ticket(-10, 10, 5))
+print(get_numbers_ticket(1000, 1200, 3))
 
 def normalize_phone(phone_number):
     phone_number = re.sub(r"[^\d]", "", phone_number)
